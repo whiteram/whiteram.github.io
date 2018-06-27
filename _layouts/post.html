@@ -23,34 +23,3 @@ layout: default
 {% include new-old.html %}
 {% include comments.html %}
 
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-
-<script>
-
-const myTheme = {
-  render(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "zh-CN"
-    container.className = 'gitment-container gitment-root-container'
-    container.appendChild(instance.renderHeader(state, instance))
-    container.appendChild(instance.renderEditor(state, instance))
-    container.appendChild(instance.renderComments(state, instance))
-    container.appendChild(instance.renderFooter(state, instance))
-    return container
-  },
-}
-
-var gitment = new Gitment({
-  id: '{{ page.date }}', // 可选。默认为 location.href  Gitment https://imsun.net/posts/gitment-introduction/
-  owner: 'whiteram',
-  repo: 'blogcomment',
-  theme: myTheme,
-  oauth: {
-    client_id: '881cfef9f714a6e27050',
-    client_secret: 'a95d93d4849af221e130e21866ff2a8d9fa565f5',
-  },
-})
-gitment.render('container')
-</script>
