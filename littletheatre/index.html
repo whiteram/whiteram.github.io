@@ -18,7 +18,7 @@ var clientw = document.documentElement.clientWidth;
 var clienth =document.documentElement.clientHeight;
 var height = clienth;
 var width = clientw;	
-var rop=width;
+var rop=(height-width)/2;
 </script>
 <style type="text/css">
 	  body{
@@ -43,16 +43,15 @@ var rop=width;
       #print{
          position : absolute ;
          background-color: white ;
+		 top:rop;
+		 left:0-rop;
 		 transform:rotate(90deg);
-		 transform-origin:0% 0%;
-		 top:-rop;//0-(height-width)/2;
-		 left:0;//-(height-width)/2;
       }
 }
 </style>
 </head>
 <body  class="webpBack" onResize="resizewd()">
-	<div id="print" width="100%" height="100%" margin="0" auto>
+	<div id="print" width="100%" height="100%">
 	<video id="video" controls autoplay hidden></video>
 	
   	<canvas id="myCanvas" width="100%" height="100%" tabindex="1"></canvas>
