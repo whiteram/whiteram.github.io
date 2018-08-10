@@ -72,10 +72,6 @@ addEventListener("keydown", function (e) {
 	if(e.keyCode===32||e.keyCode===13){parse();}
 }, false);
 function resizewd(){
-	screenWidth = window.innerWidth;
-	screenHeight = window.innerHeight;
-	height = screenHeight;
-	width = screenWidth;
 	canvas.width=width;
 	canvas.height=height;
 }

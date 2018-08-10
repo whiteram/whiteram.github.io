@@ -14,18 +14,16 @@ function playM(src){
 	soundAudio.fastSeek(0);
 	soundAudio.play();
 }
-function playV(src){
-	console.log(src);
+function playV(src){	
 	Video.width=width;
 	Video.height=height;
+	Video.removeAttribute("hidden");
 	Video.src=src;
 	bgmAudio.pause();
 	soundAudio.pause();
 	Video.play();
 }
 Video.addEventListener("ended",function(){
-		Video.width=0;
-		Video.height=0;
+		Video.setAttribute("hidden");
 		bgmAudio.play();
-	
 });
