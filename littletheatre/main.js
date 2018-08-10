@@ -13,17 +13,19 @@ function island(){
 island();
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", island, false);
 var canvas=document.getElementById("myCanvas");
+var div=document.getElementById("print");
 var ctx = canvas.getContext('2d');
 canvas.width=width;
 canvas.height=height;
 if( rotate ){
       console.log(width + " " + height);
-		alert("rotate");
 		canvas.width=height;
 		canvas.height=width;
 		var tmp=width;
 		width=height;
 		height=tmp;
+	div.width=width;
+	div.height=height;
 }
 ctx.fillStyle="#FFFFFF";
 ctx.fillRect(0,0,width,height);
@@ -38,15 +40,12 @@ function restart(){
 function clickHandler(e) {
 	x1 = e.pageX;
     y1 = e.pageY;
-	alert(x1);
-	alert(y1);
+	alert("v12");
 	
 	if(rotate){
 		var tmp=y1;
 		y1=height-x1;
 		x1=tmp;
-		alert(x1);
-		alert(y1);
 	}
 	if (coivisible === true) {
       parsecoi(x1, y1);
