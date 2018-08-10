@@ -18,6 +18,7 @@ function playV(src){
 	Video.width=width;
 	Video.height=height;
 	Video.removeAttribute("hidden");
+	canvas.setAttribute("hidden");
 	Video.src=src;
 	bgmAudio.pause();
 	soundAudio.pause();
@@ -25,5 +26,6 @@ function playV(src){
 }
 Video.addEventListener("ended",function(){
 		Video.setAttribute("hidden");
+		canvas.removeAttribute("hidden");
 		bgmAudio.play();
 });

@@ -36,11 +36,12 @@ function restart(){
 	}
 }
 function clickHandler(e) {
-	x1 = e.pageX - canvas.getBoundingClientRect().left;
-    y1 = e.pageY - canvas.getBoundingClientRect().top;
+	x1 = e.pageX;
+    y1 = e.pageY;
 	if(rotate){
+		var tmp=y1;
 		y1=height-x1;
-		x1=y1;
+		x1=tmp;
 	}
 	if (coivisible === true) {
       parsecoi(x1, y1);
