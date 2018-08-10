@@ -1,0 +1,27 @@
+*define
+DISofPIC @https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1193638704,427992806&fm=27&gp=0.jpg@
+*start
+UUUU::
+#FF6100
+这是一个表情包/
+print 2 20 30 30 50 3 https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533625760284&di=0bf498e5e645a2178992925024fbd24f&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F906db1ec0ebbd7393b52e2858bf9dec7410b86da.jpg
+的喵\
+这是一个懒惰的团子@
+print 3 80 30 30 50 0 https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1403919898,3491672878&fm=27&gp=0.jpg
+的喵\
+这是一个可爱的团子@
+print 4 50 30 30 50 0 https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=2513204844,3982795098&fm=85&s=F1A0AEF35E0A754552331A7003008054
+的喵\
+del 2
+del 3
+del 4
+A::
+switch A;B
+if(.*B.*)~
+this is B\
+endif
+BG  DISofPIC
+这是大老师的背景图\
+mpegplay http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/shootvideo.mp4
+if(.*UUUU.*) goto UUUU
+End

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>testgame</title>
+
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+</head>
+
+<body>
+  	<canvas id="myCanvas" width="480" height="360"></canvas>
+	<iframe id="iframe" name="iframe" width="0" height="0" frameborder="0"></iframe>
+	<script src="./fman.js"></script>
+	<script src="./main.js"></script>
+	<script src="./text.js"></script>
+	<script src="./anims.js"></script>
+	<script src="./person.js"></script>
+	<script src="./choices.js"></script>
+	<script src="./onscripter.js"></script>
+	<script>
+		function funcs(){
+			readtxt();
+			preparse();
+			restart();		
+		}
+		readgame("main");
+
+	</script>
+</body>
+</html>

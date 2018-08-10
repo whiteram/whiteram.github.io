@@ -1,0 +1,13 @@
+*define
+DISofPIC @"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1193638704,427992806&fm=27&gp=0.jpg"@
+*start
+PPPP::
+#FF6100
+print 1 30 50 25 25 0 ./images/pad.jpg
+effect 1 circle 100 100 
+[佐佐沧]/
+欢迎来到EdenBar!/
+switch game0;game2
+if(.*game0 [0-9]+$) run game0
+goto PPPP
+End
