@@ -13,23 +13,24 @@ function island(){
 island();
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", island, false);
 var canvas=document.getElementById("myCanvas");
-var div=document.getElementById("print");
 var ctx = canvas.getContext('2d');
 canvas.width=width;
 canvas.height=height;
 if( rotate ){
+	alert("rotate");
       console.log(width + " " + height);
 		canvas.width=height;
 		canvas.height=width;
-		div.width=height;
-		div.height=width;
 	var style="";
+	alert(canvas.style.cssText);
       style += "width:" + height + "px;"; 
       style += "height:" + width + "px;"; 
+		style+="transform: rotate(90deg);-ms-transform: rotate(90deg);-webkit-transform: rotate(90deg);	-moz-transform: rotate(90deg);		-o-transform: rotate(90deg);	";
       // 注意旋转中点的处理
-      //style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";
-	$print =  $('#print');   
-	Sprint.style.cssText+=style;
+      style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";   
+		canvas.style.cssText=style;
+	alert(canvas.style.cssText);
+	
 
 		var tmp=width;
 		width=height;
@@ -51,7 +52,7 @@ function restart(){
 function clickHandler(e) {
 	x1 = e.pageX;
     y1 = e.pageY;
-	alert("v12");
+	alert("v13");
 	
 	if(rotate){
 		var tmp=y1;
