@@ -26,15 +26,16 @@ if( rotate ){
 	var style="";
       style += "width:" + height + "px;"; 
       style += "height:" + width + "px;"; 
-      style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
       // 注意旋转中点的处理
-      style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";
-      style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
-	$print =  $('#print');
-	Sprint.style.cssText=style;
+      //style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+	$print =  $('#print');   
+	Sprint.style.cssText+=style;
+
 		var tmp=width;
 		width=height;
 		height=tmp;
+		alert(width);
+		alert(height);
 
 }
 ctx.fillStyle="#FFFFFF";
