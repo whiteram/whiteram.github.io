@@ -38,10 +38,15 @@ function restart(){
 function clickHandler(e) {
 	x1 = e.pageX;
     y1 = e.pageY;
+	alert(x1);
+	alert(y1);
+	
 	if(rotate){
 		var tmp=y1;
 		y1=height-x1;
 		x1=tmp;
+		alert(x1);
+		alert(y1);
 	}
 	if (coivisible === true) {
       parsecoi(x1, y1);
