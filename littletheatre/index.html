@@ -18,7 +18,7 @@ var clientw = document.documentElement.clientWidth;
 var clienth =document.documentElement.clientHeight;
 var height = clienth;
 var width = clientw;	
-var rop=width/2;
+var rop=width;
 </script>
 <style type="text/css">
 	  body{
@@ -44,9 +44,9 @@ var rop=width/2;
          position : absolute ;
          background-color: white ;
 		 transform:rotate(90deg);
-		 transform-origin:rop rop;
+		 transform-origin:0% 0%;
 		 top:0;//0-(height-width)/2;
-		 left:0;//-(height-width)/2;
+		 left:rop;//-(height-width)/2;
       }
 }
 </style>
