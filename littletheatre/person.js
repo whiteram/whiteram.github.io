@@ -10,15 +10,15 @@ for(var i=0;i<10;i++){
 }
 
 pers[0].src="./images/whitebg.png";
-persattr[0].x=width/2;
-persattr[0].y=height/2;
+persattr[0].x=0.5;
+persattr[0].y=0.5;
 persattr[0].w=1;
 persattr[0].h=1;
 
 function perplace(i,x,y,w,h,quake,dis){
     pers[i].src=dis;
-    persattr[i].x=width*x/100;
-    persattr[i].y=height*y/100;
+    persattr[i].x=x/100;
+    persattr[i].y=y/100;
     persattr[i].qk = quake;
     if(w===0){
       persattr[i].h = h / 100;
@@ -68,28 +68,28 @@ function perrender() {
           if(persattr[i].anm!==0){
             var thisanim = anims[persattr[i].anm];
             var len = thisanim.length;
+			var bl=width/200;
             if(persattr[i].t>=thisanim.length){
               if (thisanim[len - 2] === thisanim[0] && thisanim[len - 1] === thisanim[1]){
                   persattr[i].t=0;
               }else{
                 persattr[i].anm=0;
               }
-              x = persattr[i].x + thisanim[len - 2] *(persattr[i].tx-persattr[i].x)/200;
-              y = persattr[i].y + thisanim[len - 1] * (persattr[i].ty - persattr[i].y) / 200;//
-              persattr[i].x = x;
-              persattr[i].y = y;
+              x =width*persattr[i].x+thisanim[len - 2] *(persattr[i].tx-persattr[i].x)*bl;
+              y =height*persattr[i].y+thisanim[len - 1] * (persattr[i].ty-persattr[i].y)*bl;
+              persattr[i].x = x/width;
+              persattr[i].y = y/height;
               
             }else{
-              x = persattr[i].x + thisanim[persattr[i].t] * (persattr[i].tx - persattr[i].x) / 200;
-              y = persattr[i].y + thisanim[persattr[i].t+1] * (persattr[i].ty - persattr[i].y) / 200;
+				x =width*persattr[i].x+thisanim[persattr[i].t] *(persattr[i].tx-persattr[i].x)*bl;
+				y =height*persattr[i].y+thisanim[persattr[i].t+1] * (persattr[i].ty-persattr[i].y)*bl;
               
             }
-
             persattr[i].t=persattr[i].t+2;
           }else{
-            x=persattr[i].x;
-            y=persattr[i].y;
-          }
+			x=persattr[i].x*width;
+			y=persattr[i].y*height;
+		  }
 
       ctx.drawImage(
         pers[i],
@@ -101,4 +101,4 @@ function perrender() {
         }
     }
   }
-     
+  

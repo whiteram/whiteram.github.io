@@ -3,7 +3,7 @@
 var iframe = document.getElementById("iframe");
 var gamedir="./txt/";
 var currgame="";
-var txt = "";
+var txt = "",labels="";
 function readgame(name) {
 	if(currgame!==""){savelog();}
 	iframe.src=gamedir+name+".txt";
@@ -51,7 +51,7 @@ function readlog(name){
 	}else{
 		curr=-1;
 		iffnum=0;
-		lables="";
+		labels="";
 	}
 	if(persaddr!==null){
 		tmp=JSON.parse(persaddr);

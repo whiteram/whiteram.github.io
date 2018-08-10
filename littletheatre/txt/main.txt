@@ -5,7 +5,7 @@ PPPP::
 music http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/bgm.mp3
 #FF6100
 print 1 30 50 25 25 0 ./images/pad.jpg
-effect 1 circle 100 100 
+effect 1 circle 100 100 0
 [佐佐沧]/
 欢迎来到EdenBar!/
 video http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/shootvideo.mp4

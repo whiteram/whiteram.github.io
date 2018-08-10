@@ -27,7 +27,7 @@ kzz.push(new RegExp("\\b\effect\\b\\s*([0-9])\\s*(\\S+)\\s*([0-9]+)\\s*([0-9]+)\
  */
 var ktov=new RegExp("\\s*([0-9a-zA-Z]+)\\s+@(.+)@");
 var stcs=[],currsen='';
-var curr=-1,pristat=0,labels='',iffnum=0;
+var curr=-1, pristat=0,iffnum=0;
 var Auto=0,t=0,tmp1,tmp2;
 function setlabel(ci){
 	   labels+=' '+ci+' '+curr.toString();
@@ -38,9 +38,6 @@ function preparse(){
  var def=txt.indexOf("*define");
  var star=txt.indexOf("*start",def+7);
  var end=txt.lastIndexOf("End");
-	//alert(txt);
-	//alert(star);
-	//alert(end);
  if (def === -1 || star === -1 || end === -1)
  {return false;}//error
  var txtdef=txt.substring(def+7,star);

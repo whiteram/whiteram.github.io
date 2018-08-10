@@ -6,26 +6,27 @@ var soundAudio=document.getElementById("sound");
 var Video=document.getElementsByTagName("video")[0];
 function playBGM(src){
 	bgmAudio.src=src;
-	bgmAudio.fastSeek(0);
 	bgmAudio.play();
 }
 function playM(src){
 	soundAudio.src=src;
-	soundAudio.fastSeek(0);
 	soundAudio.play();
 }
 function playV(src){	
-	Video.width=width;
-	Video.height=height;
-	canvas.setAttribute("hidden");
+	Video.width=width,Video.height=height;
+	canvas.setAttribute("hidden","hidden");
+	canvas.width=0,canvas.height=0;
 	Video.removeAttribute("hidden");
 	Video.src=src;
+	console.log("playV");
 	bgmAudio.pause();
 	soundAudio.pause();
 	Video.play();
 }
 Video.addEventListener("ended",function(){
-		Video.setAttribute("hidden");
+		Video.width=0,Video.height=0;
+		Video.setAttribute("hidden","hidden");
+		canvas.width=width,canvas.height=height;
 		canvas.removeAttribute("hidden");
 		bgmAudio.play();
 });

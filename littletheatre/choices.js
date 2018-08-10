@@ -3,7 +3,7 @@
 var coistc=[];
 var coiimg=new Image();
 coiimg.src="./images/texttable90.png";
-var coiimgw=width,coiimgh=height/4,coiimgx=0,coiimgy=height*3/4;
+var coiimgw=1,coiimgh=height/4,coiimgx=width,coiimgy=height/5;
 var coifont="40px Arial",coifillStyle="#FFFFFF";
 var coivisible=false,coihg=0;
 
@@ -15,15 +15,19 @@ function setcoi(anses){
 		}else{
 			coistc=anses;
 			coihg=height/(anses.length);
-			coiimgx=width/2-coiimgw/2;
+			coiimgx=width*(1-coiimgw)/2;
     		coiimgh = coihg * 0.7;
-			coiimgy=coihg/2-coiimgh/2;
+			coiimgy=(coihg-coiimgh)/2;
 			coivisible=true;
 		}
 
 }	
 function parsecoi(x,y){
-		if(x>width/2+coiimgw/2||x<width/2-coiimgw/2){return false;}
+			coihg=height/(anses.length);
+			coiimgx=width*(1-coiimgw)/2;
+    		coiimgh = coihg * 0.7;
+			coiimgy=(coihg-coiimgh)/2;
+		if(x>width*coiimgw+coiimgx||x<coiimgx){return false;}
 		setlabel(coistc[Math.floor(y/coihg)]);
 		coivisible=false;
 		return true;
@@ -41,7 +45,7 @@ function coirender() {
         coiimg,
         coiimgx,
         coiimgy+coihg*i,
-        coiimgw,
+        width*coiimgw,
         coiimgh
       );
   
