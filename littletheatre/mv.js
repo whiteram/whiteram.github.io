@@ -17,8 +17,8 @@ function playM(src){
 function playV(src){	
 	Video.width=width;
 	Video.height=height;
-	Video.removeAttribute("hidden");
 	canvas.setAttribute("hidden");
+	Video.removeAttribute("hidden");
 	Video.src=src;
 	bgmAudio.pause();
 	soundAudio.pause();
