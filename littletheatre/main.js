@@ -21,11 +21,21 @@ if( rotate ){
       console.log(width + " " + height);
 		canvas.width=height;
 		canvas.height=width;
+		div.width=height;
+		div.height=width;
+
+
+	$print =  $('#print');
+    $print.width(height);
+    $print.height(width);
+    $print.css('top',  (height-width)/2 );
+    $print.css('left',  0-(height-width)/2 );
+    $print.css('transform' , 'rotate(90deg)');
+    $print.css('transform-origin' , '50% 50%');
 		var tmp=width;
 		width=height;
 		height=tmp;
-	div.width=width;
-	div.height=height;
+
 }
 ctx.fillStyle="#FFFFFF";
 ctx.fillRect(0,0,width,height);
