@@ -3,7 +3,7 @@
 
 var bgmAudio=document.getElementById("BGM");
 var soundAudio=document.getElementById("sound");
-
+var Video=document.getElementsByTagName("video")[0];
 function playBGM(src){
 	bgmAudio.src=src;
 	bgmAudio.fastSeek(0);
@@ -14,3 +14,18 @@ function playM(src){
 	soundAudio.fastSeek(0);
 	soundAudio.play();
 }
+function playV(src){
+	console.log(src);
+	Video.width=width;
+	Video.height=height;
+	Video.src=src;
+	bgmAudio.pause();
+	soundAudio.pause();
+	Video.play();
+}
+Video.addEventListener("ended",function(){
+		Video.width=0;
+		Video.height=0;
+		bgmAudio.play();
+	
+});

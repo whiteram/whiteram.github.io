@@ -6,13 +6,13 @@ kzz.push(new RegExp("([^/]*)/\\s*$"));//kline=
 kzz.push(new RegExp("([^@]*)@\\s*$")) ;//kappend=
 
 kzz.push(new RegExp("(#[0-9a-fA-F]{6})"));//kRGB=
-kzz.push(new RegExp("\\bBG\\b\\s*[\'\"](.*)[\"\']"));//kBG=
-kzz.push(new RegExp("\\bBGM\\b\\s*[\'\"](.*)[\"\']"));//kBGM=
+kzz.push(new RegExp("\\bBG\\b\\s*(.*)"));//kBG=
+kzz.push(new RegExp("\\bBGM\\b\\s*(.*)"));//kBGM=
 
 kzz.push(new RegExp("\\bprint\\b\\s*([0-9])\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*(\\S+)"));//kprint= i x y w h(%) quake  dd
 kzz.push(new RegExp("\\bdel\\b\\s*([0-9]+)"));//del=
-kzz.push(new RegExp("\\bmp3\\b\\s*[\'\"](.*)[\"\']"));//kmp3=
-kzz.push(new RegExp("\\bmpegplay\\b\\s*[\'\"](.*)[\"\']"));//kmpegplay=
+kzz.push(new RegExp("\\bmusic\\b\\s*(.*)"));//kmp3=
+kzz.push(new RegExp("\\bvideo\\b\\s*(.*)"));//kmpegplay=
 
 kzz.push(new RegExp("\\bwait\\b\\s*([0-9]+)"));//kwait=
 kzz.push(new RegExp("([^:\\s]*)::\\s*$"));//kLabel=
@@ -137,7 +137,7 @@ function parsesen(sen){
 				playM(res[1]);
         break;
 			}else if(i===10){
-				//this.mv.playV(res[1]);
+				playV(res[1]);
         break;
 			}else if(i===11){
 				t = Date.now();

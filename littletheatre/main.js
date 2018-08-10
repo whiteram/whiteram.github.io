@@ -4,6 +4,8 @@ var canvas=document.getElementById("myCanvas");
 var ctx = canvas.getContext('2d');
 var screenWidth = window.innerWidth;
 var screenHeight = window.innerHeight;
+var clientw = document.documentElement.clientWidth;
+var clienth =document.documentElement.clientHeight;
 var height = screenHeight;
 var width = screenWidth;
 canvas.width=width;
@@ -35,6 +37,17 @@ function clickHandler(e) {
       loop();
     }
 
+}
+addEventListener("keydown", function (e) {
+	if(e.keyCode===32||e.keyCode===13){parse();}
+}, false);
+function resizewd(){
+	screenWidth = window.innerWidth;
+	screenHeight = window.innerHeight;
+	height = screenHeight;
+	width = screenWidth;
+	canvas.width=width;
+	canvas.height=height;
 }
 function loop(){
 	ctx.clearRect(0, 0,width,height);
