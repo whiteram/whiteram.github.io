@@ -23,15 +23,15 @@ if( rotate ){
 		canvas.height=width;
 		div.width=height;
 		div.height=width;
-
-
+	var style="";
+      style += "width:" + height + "px;"; 
+      style += "height:" + width + "px;"; 
+      style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
+      // 注意旋转中点的处理
+      style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+      style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
 	$print =  $('#print');
-    $print.width(height);
-    $print.height(width);
-    $print.css('top',  (height-width)/2 );
-    $print.css('left',  0-(height-width)/2 );
-    $print.css('transform' , 'rotate(90deg)');
-    $print.css('transform-origin' , '50% 50%');
+	Sprint.style.cssText=style;
 		var tmp=width;
 		width=height;
 		height=tmp;
