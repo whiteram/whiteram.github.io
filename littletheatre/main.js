@@ -18,6 +18,7 @@ canvas.width=width;
 canvas.height=height;
 if( rotate ){
       console.log(width + " " + height);
+		alert("rotate");
 		canvas.width=height;
 		canvas.height=width;
 		var tmp=width;
