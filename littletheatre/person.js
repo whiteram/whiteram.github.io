@@ -3,12 +3,15 @@
 
 var persattr=[];
 var pers=[];
+function makefuc(ii){return function(){persattr[ii].loaded=true;}}
 for(var i=0;i<10;i++){
 	pers.push(new Image());
 	pers[i].src="";
-	persattr.push({x:0,y:0,w:0,h:0,anm:0,t:0,tx:0,ty:0,qk:0});	
+	persattr.push({x:0,y:0,w:0,h:0,anm:0,t:0,tx:0,ty:0,qk:0,loaded:false});	
+	pers[i].onload=makefuc(i);
 }
 
+persattr[0].loaded=false;
 pers[0].src="./images/whitebg.png";
 persattr[0].x=0.5;
 persattr[0].y=0.5;
@@ -16,7 +19,6 @@ persattr[0].w=1;
 persattr[0].h=1;
 
 function perplace(i,x,y,w,h,quake,dis){
-    pers[i].src=dis;
     persattr[i].x=x/100;
     persattr[i].y=y/100;
     persattr[i].qk = quake;
@@ -26,23 +28,28 @@ function perplace(i,x,y,w,h,quake,dis){
         persattr[i].h=0;
 		persattr[i].w=0;
       }else{
-        persattr[i].h = h / 100;
-        persattr[i].w = (h * pers[i].width / pers[i].height) / 100;
+		  persattr[i].h = h / 100;
+		  pers[i].onload = function () {persattr[i].w = height/width*(h * pers[i].width / pers[i].height)/100;}    
       }
     }else if(h===0){
       persattr[i].w = w / 100;
-      persattr[i].h = (w * pers[i].height / pers[i].width)/100;
+      pers[i].onload = function () {persattr[i].h = width/height*(w * pers[i].height / pers[i].width)/100;} 
+	  //调整自动缩放比例
     }else{
       persattr[i].w = w / 100;
       persattr[i].h = h / 100;
     }
+	persattr[i].loaded=false;
+	pers[i].src=dis;
+	
 }
 function perdel(i){
+	persattr[i].loaded=false;
     pers[i].src = "";
 }   
 function pereffect(i,animname,tx,ty,tt){
-  	persattr[i].tx=tx;
-    persattr[i].ty=ty;
+  	persattr[i].tx=tx/100;
+    persattr[i].ty=ty/100;
     persattr[i].t=tt;
     if(animname==='line'){
       persattr[i].anm=1;
@@ -57,7 +64,7 @@ function pereffect(i,animname,tx,ty,tt){
 
 function perrender() {
     for (var i = 0; i < 10; i++) {
-        if(pers[i].src!==""){
+        if(persattr[i].loaded){
           var w=0,h=0,x=0,y=0;
               w=width*persattr[i].w;
               h=height*persattr[i].h;
@@ -68,21 +75,20 @@ function perrender() {
           if(persattr[i].anm!==0){
             var thisanim = anims[persattr[i].anm];
             var len = thisanim.length;
-			var bl=width/200;
             if(persattr[i].t>=thisanim.length){
               if (thisanim[len - 2] === thisanim[0] && thisanim[len - 1] === thisanim[1]){
                   persattr[i].t=0;
               }else{
                 persattr[i].anm=0;
               }
-              x =width*persattr[i].x+thisanim[len - 2] *(persattr[i].tx-persattr[i].x)*bl;
-              y =height*persattr[i].y+thisanim[len - 1] * (persattr[i].ty-persattr[i].y)*bl;
+              x =width*(persattr[i].x+thisanim[len - 2] *persattr[i].tx/200);
+              y =height*(persattr[i].y+thisanim[len - 1] * persattr[i].ty/200);
               persattr[i].x = x/width;
               persattr[i].y = y/height;
               
             }else{
-				x =width*persattr[i].x+thisanim[persattr[i].t] *(persattr[i].tx-persattr[i].x)*bl;
-				y =height*persattr[i].y+thisanim[persattr[i].t+1] * (persattr[i].ty-persattr[i].y)*bl;
+				x =width*(persattr[i].x+thisanim[persattr[i].t] * persattr[i].tx/200);
+				y =height*(persattr[i].y+thisanim[persattr[i].t+1] * persattr[i].ty/200);
               
             }
             persattr[i].t=persattr[i].t+2;
@@ -90,11 +96,12 @@ function perrender() {
 			x=persattr[i].x*width;
 			y=persattr[i].y*height;
 		  }
-
-      ctx.drawImage(
-        pers[i],
-       x-w/2 + (Math.random() - 0.5) * persattr[i].qk,
-        y-h/2 + (Math.random() - 0.5) * persattr[i].qk,
+			x=Math.floor(x);
+			y=Math.floor(y);
+			console.log(pers[i]);
+      ctx.drawImage(pers[i],
+					0,//x-w/2 + (Math.random() - 0.5) * persattr[i].qk,
+					0,//y-h/2 + (Math.random() - 0.5) * persattr[i].qk,
             w,h
       );
           

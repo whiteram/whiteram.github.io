@@ -3,7 +3,7 @@
 var coistc=[];
 var coiimg=new Image();
 coiimg.src="./images/texttable90.png";
-var coiimgw=1,coiimgh=height/4,coiimgx=width,coiimgy=height/5;
+var coiimgw=1,coiimgh=height,coiimgx=width,coiimgy=height,coiimghbl=0.7;
 var coifont="40px Arial",coifillStyle="#FFFFFF";
 var coivisible=false,coihg=0;
 
@@ -16,16 +16,16 @@ function setcoi(anses){
 			coistc=anses;
 			coihg=height/(anses.length);
 			coiimgx=width*(1-coiimgw)/2;
-    		coiimgh = coihg * 0.7;
+    		coiimgh = coihg * coiimghbl;
 			coiimgy=(coihg-coiimgh)/2;
 			coivisible=true;
 		}
 
 }	
 function parsecoi(x,y){
-			coihg=height/(anses.length);
+			coihg=height/(coistc.length);
 			coiimgx=width*(1-coiimgw)/2;
-    		coiimgh = coihg * 0.7;
+    		coiimgh = coihg * coiimghbl;
 			coiimgy=(coihg-coiimgh)/2;
 		if(x>width*coiimgw+coiimgx||x<coiimgx){return false;}
 		setlabel(coistc[Math.floor(y/coihg)]);
@@ -39,7 +39,7 @@ function coirender() {
 	  
       ctx.fillStyle = coifillStyle;
       ctx.font = coifont;
-	  ctx.textBaseline="middle";
+	  //ctx.textBaseline="middle";
 	  for(var i=0;i<coistc.length;i++){
 	  	ctx.drawImage(
         coiimg,
@@ -54,7 +54,5 @@ function coirender() {
         (width-ctx.measureText(coistc[i]).width)/2,
 		coihg*i+coihg/2
       );}
-      
-	  ctx.textBaseline="hanging";
 	  
 }

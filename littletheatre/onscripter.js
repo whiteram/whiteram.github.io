@@ -9,7 +9,7 @@ kzz.push(new RegExp("(#[0-9a-fA-F]{6})"));//kRGB=
 kzz.push(new RegExp("\\bBG\\b\\s*(.*)"));//kBG=
 kzz.push(new RegExp("\\bBGM\\b\\s*(.*)"));//kBGM=
 
-kzz.push(new RegExp("\\bprint\\b\\s*([0-9])\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*(\\S+)"));//kprint= i x y w h(%) quake  dd
+kzz.push(new RegExp("\\bprint\\b\\s*([0-9])\\s*(\\-?[0-9]+)\\s*(\\-?[0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)\\s*(\\S+)"));//kprint= i x y w h(%) quake  dd
 kzz.push(new RegExp("\\bdel\\b\\s*([0-9]+)"));//del=
 kzz.push(new RegExp("\\bmusic\\b\\s*(.*)"));//kmp3=
 kzz.push(new RegExp("\\bvideo\\b\\s*(.*)"));//kmpegplay=
@@ -21,7 +21,7 @@ kzz.push(new RegExp("\\bclick\\b"));//click
 kzz.push(new RegExp("\\bswitch\\b\\s+(.+)\\b"));//Switch
 kzz.push(new RegExp("\\bendif\\b\\s*"));//endif
 kzz.push(new RegExp("\\brun\\b\\s*\\b(\\S+)\\b"));//krun=
-kzz.push(new RegExp("\\b\effect\\b\\s*([0-9])\\s*(\\S+)\\s*([0-9]+)\\s*([0-9]+)\\s*([0-9]+)"));//keffect= layer animname tx ty tt
+kzz.push(new RegExp("\\b\effect\\b\\s*([0-9])\\s*(\\S+)\\s*(\\-?[0-9]+)\\s*(\\-?[0-9]+)\\s*([0-9]+)"));//keffect= layer animname tx ty tt
 /**
  * 统一的ons解析管理器
  */

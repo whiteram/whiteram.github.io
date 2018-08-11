@@ -1,5 +1,5 @@
 "use strict";
-var width,height; 
+var width,height,rotate=false; 
 var canvas=document.getElementById("myCanvas");
 var ctx = canvas.getContext('2d');
 canvas.width=width;
@@ -7,10 +7,11 @@ canvas.height=height;
 var lookdic=function(){
 width=window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 height=window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; 
-			alert(width);
-		alert(height);
 if(width<height){
 	alert("rotate");
+	rotate=true;
+		//height=Math.ceil(16*width/10);
+		//window.resizeTo(width,height);
 		canvas.width=height;
 		canvas.height=width;
 		var style= "width:" + height + "px;height:" + width + "px;"; 
@@ -18,7 +19,13 @@ if(width<height){
       // 注意旋转中点的处理
       style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;transform-origin: " + width / 2 + "px " + width / 2 + "px;";   
 		canvas.style.cssText=style;
+		var tmp=height;
+		height=width;
+		width=tmp;
 }else{
+	rotate=false;
+	//height=Math.floor(10*width/16);
+	//window.resizeTo(width,height);
 	canvas.width=width;
 	canvas.height=height;
 	canvas.style.cssText="";
@@ -35,19 +42,19 @@ function restart(){
 	}
 }
 function clickHandler(e) {
-	x1 = e.pageX;
-    y1 = e.pageY;
+	x1 = e.clientX||e.pageX;
+    y1 = e.clientY||e.pageY;
 	
-	if(width<height){
+	if(rotate){
 		var tmp=y1;
 		y1=height-x1;
 		x1=tmp;
 	}
 	if (coivisible === true) {
       parsecoi(x1, y1);
-    } else if (y1 > txtimgy) {
-      txtvisible = true;
-      parse();
+    } else if (y1 > txtimgy*height) {
+		if(txtvisible===false){txtvisible = true;}
+		else{ parse();}
     } else {
       if (txtvisible === true) {
 		  savelog();

@@ -3,6 +3,7 @@ DISofPIC @https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1193638704,4
 *start
 UUUU::
 #FF6100
+\
 这是一个表情包/
 print 2 20 30 30 50 3 https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533625760284&di=0bf498e5e645a2178992925024fbd24f&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F906db1ec0ebbd7393b52e2858bf9dec7410b86da.jpg
 的喵\
