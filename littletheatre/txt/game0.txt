@@ -23,6 +23,6 @@ this is B\
 endif
 BG  DISofPIC
 这是大老师的背景图\
-mpegplay http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/shootvideo.mp4
+video http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/shootvideo.mp4
 if(.*UUUU.*) goto UUUU
 End

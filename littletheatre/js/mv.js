@@ -5,11 +5,11 @@ var bgmAudio=document.getElementById("BGM");
 var soundAudio=document.getElementById("sound");
 var Video=document.getElementsByTagName("video")[0];
 function playBGM(src){
-	bgmAudio.src=src;
+	if(src!==null){bgmAudio.src=src;}
 	bgmAudio.play();
 }
 function playM(src){
-	soundAudio.src=src;
+	if(src!==null){soundAudio.src=src;}
 	soundAudio.play();
 }
 function playV(src){	

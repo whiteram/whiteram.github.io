@@ -1,0 +1,26 @@
+*define
+DISofPIC @https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1193638704,427992806&fm=27&gp=0.jpg@
+BNWG @http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/bartender1.png@
+LOCPIC @./images/pad.jpg@
+*start
+BG BNWG
+GuideStart::
+music http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/bgm.mp3
+#FF6100
+print 2 70 70 25 25 0 DISofPIC
+\
+大家好@
+我就是程序猿大人/
+下面介绍食用方法\
+1、点击下方文字框部分@
+或者回车、或空格/
+会显示下一句。\
+2、出现选择请点击选项\
+3、点击文字框之上的图像部分/
+会显示完整图像/
+并保存当前进度@
+（这点很重要哦！）\
+以上感谢观看/
+byebye\
+run main 1
+End

@@ -40,22 +40,23 @@
 	<audio id="BGM" loop hidden="hidden" autoplay></audio>
 	<audio id="sound" hidden="hidden" autoplay></audio>
 	<iframe id="iframe" name="iframe" hidden="hidden" frameborder="0"></iframe>
-	<script src="./mv.js"></script>
-	<script src="./fman.js"></script>
-	<script src="./main.js"></script>
-	<script src="./text.js"></script>
-	<script src="./anims.js"></script>
-	<script src="./person.js"></script>
-	<script src="./choices.js"></script>
-	<script src="./onscripter.js"></script>
+	<script src="./js/mv.js"></script>
+	<script src="./js/fman.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/text.js"></script>
+	<script src="./js/anims.js"></script>
+	<script src="./js/person.js"></script>
+	<script src="./js/choices.js"></script>
+	<script src="./js/onscripter.js"></script>
 	<script>
+		var version=4;
 		function funcs(){
 			lookdic();
 			readtxt();
 			preparse();
 			restart();		
 		}
-		readgame("main");
+		readgame("main",0);
 
 	</script>
 </body>

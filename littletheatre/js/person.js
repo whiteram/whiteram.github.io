@@ -98,10 +98,10 @@ function perrender() {
 		  }
 			x=Math.floor(x);
 			y=Math.floor(y);
-			console.log(pers[i]);
+			
       ctx.drawImage(pers[i],
-					0,//x-w/2 + (Math.random() - 0.5) * persattr[i].qk,
-					0,//y-h/2 + (Math.random() - 0.5) * persattr[i].qk,
+					x-w/2 + (Math.random() - 0.5) * persattr[i].qk,
+					y-h/2 + (Math.random() - 0.5) * persattr[i].qk,
             w,h
       );
           
