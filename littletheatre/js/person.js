@@ -3,7 +3,12 @@
 
 var persattr=[];
 var pers=[];
-function makefuc(ii){return function(){persattr[ii].loaded=true;}}
+function makefuc(ii){return function(){
+	persattr[ii].loaded=true;
+	if(persattr[ii].h===0&&persattr[ii].w===0){return 0;}
+	if(persattr[ii].h===0){persattr[ii].h = width/height*(persattr[ii].w * pers[ii].height / pers[ii].width);}
+	else if(persattr[ii].w===0){persattr[ii].w = height/width*(persattr[ii].h * pers[ii].width / pers[ii].height);}
+}}
 for(var i=0;i<10;i++){
 	pers.push(new Image());
 	pers[i].src="";
@@ -22,23 +27,8 @@ function perplace(i,x,y,w,h,quake,dis){
     persattr[i].x=x/100;
     persattr[i].y=y/100;
     persattr[i].qk = quake;
-    if(w===0){
-      persattr[i].h = h / 100;
-      if(h===0){
-        persattr[i].h=0;
-		persattr[i].w=0;
-      }else{
-		  persattr[i].h = h / 100;
-		  pers[i].onload = function () {persattr[i].w = height/width*(h * pers[i].width / pers[i].height)/100;}    
-      }
-    }else if(h===0){
-      persattr[i].w = w / 100;
-      pers[i].onload = function () {persattr[i].h = width/height*(w * pers[i].height / pers[i].width)/100;} 
-	  //调整自动缩放比例
-    }else{
-      persattr[i].w = w / 100;
-      persattr[i].h = h / 100;
-    }
+    persattr[i].w = w / 100;
+    persattr[i].h = h / 100;
 	persattr[i].loaded=false;
 	pers[i].src=dis;
 	

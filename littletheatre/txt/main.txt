@@ -7,8 +7,7 @@ BG BNWG
 MainStart::
 BGM http://ftp6242555.host715.zhujiwu.me/wp-content/uploads/2018/08/bgm.mp3
 #FF6100
-print 2 70 70 25 0 LOCPIC
-effect 2 circle -40 -40 0
+print 2 70 70 30 0 0 LOCPIC
 欢迎来到Bartender!/
 您是今天的第一位客人！\
 当然不是了/

@@ -4,7 +4,7 @@ var coistc=[];
 var coiimg=new Image();
 coiimg.src="./images/texttable90.png";
 var coiimgw=1,coiimgh=height,coiimgx=width,coiimgy=height,coiimghbl=0.7;
-var coifont="40px Arial",coifillStyle="#FFFFFF";
+var coifont='bold '+txtsize.toString()+'px Arial',coifillStyle="#FFFFFF";
 var coivisible=false,coihg=0;
 
 function setcoi(anses){
