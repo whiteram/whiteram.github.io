@@ -1,373 +1,455 @@
-<p align="right"><a title="New «NexT» 6.0.0 version [Reloaded]" href="https://github.com/theme-next/hexo-theme-next">NexT v6.0.0 here :triangular_flag_on_post:</a></p>
+## jekyll-theme-H2O
 
-<h1 align="center">NexT</h1>
+基于Jekyll的博客主题模板，简洁轻量。
 
-<p align="center">NexT is a high quality elegant <a href="http://hexo.io">Hexo</a> theme. It is crafted from scratch, with love.</p>
+另外，还有此主题的[Ghost版本](https://github.com/eastpiger/ghost-theme-H2O) by [eastpiger](https://github.com/eastpiger)
 
-[![gitter-image]][gitter-url]
-[![mnt-image]](https://github.com/theme-next/hexo-theme-next)
-[![travis-image]][travis-url]
-[![rel-image]][releases-url]
-[![hexo-image]][hexo-url]
-[![lic-image]](LICENSE)
+### Preview
 
-* [Chinese Documentation](README.cn.md)
+#### [在线预览 Live Demo →](http://liaokeyu.com/)
 
-## Live Preview
+![](screenshot/jekyll-theme-h2o-realhome.jpg)
 
-* :heart_decoration: Muse scheme: [LEAFERx](https://leaferx.online) | [XiaMo](https://notes.wanghao.work) | [OAwan](https://oawan.me)
-* :six_pointed_star: Mist scheme: [Jeff](https://blog.zzbd.org) | [uchuhimo](http://uchuhimo.me) | [xirong](http://www.ixirong.com)
-* :pisces: Pisces scheme: [Vi](http://notes.iissnan.com) | [Acris](https://acris.me) | [Rainy](https://rainylog.com)
-* :gemini: Gemini scheme: [Ivan.Nginx](https://almostover.ru) | [Raincal](https://raincal.com) | [Dandy](https://dandyxu.me)
+![](screenshot/jekyll-theme-h2o-realm.png)
 
-More NexT examples [here](https://github.com/iissnan/hexo-theme-next/issues/119).
+如果你喜欢这个博客模板，请在右上角star一下，非常感谢～
 
-## Installation
+If you like this theme or using it, please give a ⭐️ for motivation ;)
 
-**1.** Change dir to **hexo root** directory. There must be `node_modules`, `source`, `themes` and other directories:
-   ```sh
-   $ cd hexo
-   $ ls
-   _config.yml  node_modules  package.json  public  scaffolds  source  themes
-   ```
+如果想体验手机浏览效果，可以扫一下二维码：
 
-**2.** Get theme from GitHub. There are several variants to do it:
+![](screenshot/1494404591.png)
 
-### Download [latest release version][releases-latest-url].
-   At most cases **stable**. Recommended for most users.
+Using your smartphone to scan the QR Code
 
-   [![curl-tar-wget-image]][curl-tar-wget-url]
+### Features 特性
 
-   ```sh
-   $ mkdir themes/next
-   $ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d '"' -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1
-   ```
+#### CN
 
-### Download [tagged release version][releases-url].
-   You must define version. Replace `v5.1.2` with any version from [tags list][tags-url].
+- 代码高亮
+- 夜间模式
+- Disqus评论系统
+- 粉蓝两种主题色
+- 头图个性化底纹
+- 响应式设计
+- 社交图标
+- SEO标题优化
+- 文章标签索引
+- 博客文章搜索
+- 复制文章内容自动添加版权
 
-   [![curl-tar-image]][curl-tar-url]
+#### EN
 
-   ```sh
-   $ mkdir themes/next
-   $ curl -L https://api.github.com/repos/iissnan/hexo-theme-next/tarball/v5.1.2 | tar -zxv -C themes/next --strip-components=1
-   ```
+- Code highlight
+- Night mode
+- Disqus Comment System
+- Theme color: Blue & Pink
+- Hero Patterns
+- Responsive design
+- SNS Icon
+- Title SEO
+- Tags system
+- Search
+- Copyright text on copy event
 
-   [![git-image]][git-url]
+### Usage 快速开始
 
-   ```sh
-   $ git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
-   ```
+首先你需要安装Jekyll，请查看文档: [快速指南](http://jekyll.com.cn/docs/quickstart/)
 
-### Download [latest master branch][download-latest-url].
-   May be **unstable**, but includes latest features. Recommended for developers.
+如果你已经安装了Jekyll，请检查版本是否为3.0.x，你可以使用 ```gem update jekyll``` 命令进行升级。
 
-   [![curl-tar-image]][curl-tar-url]
+使用 ```gem install jekyll-paginate``` 或 ```sudo gem install jekyll-paginate``` 安装Jekyll的分页插件。
 
-   ```sh
-   $ mkdir themes/next
-   $ curl -L https://api.github.com/repos/iissnan/hexo-theme-next/tarball | tar -zxv -C themes/next --strip-components=1
-   ```
+> H2O主题基于Jekyll 3.2.1版本，不同版本之间可能存在部分差异，具体请参考[官方更新文档](https://jekyllrb.com/news/)
 
-   [![git-image]][git-url]
+点击右上角Fork按钮在你的Github上创建分支，或者```clone```到本地。
 
-   ```sh
-   $ git clone https://github.com/iissnan/hexo-theme-next themes/next
-   ```
+``` git clone https://github.com/kaeyleo/jekyll-theme-H2O.git ```
 
-   Clone command will give you the **whole repository**. And in any time you can switch to any tagged release.\
-   Get tags list:
+最后，在命令行输入 ```jekyll server``` 开启服务，就能在本地预览主题了。
 
-   ```sh
-   $ cd themes/next
-   $ git tag -l
-   …
-   v5.0.0
-   v5.0.1
-   v5.1.0
-   v5.1.1
-   v5.1.2
-   ```
+如果需要部署到线上环境，请参照配置文档的 **开始** 章节进行操作。
 
-   For example, you want to switch on `v5.1.0` [tagged release version][tags-url]. Input the following command:
+### Document 配置文档
 
-   ```sh
-   $ git checkout tags/v5.1.0
-   Note: checking out 'tags/v5.1.0'.
-   …
-   HEAD now on 1f72f68... CSS: Remove global list-style setting of ul
-   ```
+#### CN
 
-   And if you want to switch back on [master branch][commits-url], input this command:
+- 开始
+	- [站点信息](#站点信息)
+	- [写一篇文章](#写一篇文章)
+- 组件
+	- [导航](#导航)
+	- [侧边栏](#侧边栏)
+	- [社交图标](#社交图标)
+	- [个人简介](#个人简介)
+	- [标签](#标签)
+	- [文章搜索](#文章搜索)
+	- [代码高亮](#代码高亮)
+	- [夜间模式](#夜间模式)
+- 个性化
+	- [博客封面、主题皮肤](#主题皮肤)
+	- [头图底纹](#头图底纹)
+- 高级部分
+	- [自定义](#自定义)
+- 集成服务
+	- [Disqus](#disqus)
+	- [Share.js](#sharejs)
 
-   ```sh
-   $ git checkout master
-   ```
+#### EN
 
-**3.** Set theme in main **hexo root config** `_config.yml` file:
+- Get Started
+	- [Site Settings](#站点信息)
+	- [Write Posts](#写一篇文章)
+- Components
+	- [Navigation Menu](#导航)
+	- [Sidebar](#侧边栏)
+	- [SNS Icons](#社交图标)
+	- [Personal Information](#个人简介)
+	- [Tags](#标签)
+	- [Search](#文章搜索)
+	- [Syntax Highlight](#代码高亮)
+	- [Night Mode](#夜间模式)
+- Style
+	- [Theme Color](#主题皮肤)
+	- [Hero Background Patterns](#头图底纹)
+- Advanced
+	- [Customization](#自定义)
+- Plugins
+	- [Disqus](#Disqus)
+	- [Share.js](#Share.js)
 
-    theme: next
 
-### Bugs
-For those who also encounter **Error: Cannot find module 'hexo-util'** [issue](https://github.com/iissnan/hexo-theme-next/issues/1490), please check your NPM version.
+You can easily get started by modifying _config.yml
 
-- `> 3`: Still not work. Please remove `node_modules` directory and reinstall using `npm install`.
-- `< 3`: Please add `hexo-util` explicitly via `npm install --save-dev hexo-util` to you site package deps.
+#### 站点信息
 
-## Update
+你可以通用修改 `_config.yml` 文件来轻松的开始搭建自己的博客
 
-```sh
-$ cd themes/next
-$ git pull
+```
+# Site settings
+title: '廖柯宇的独立博客' # 你的博客网站标题
+description: '很高兴能在这里与你分享我对技术和生活的思考。' # 站点描述
+keyword: '廖柯宇, 廖柯宇的独立博客, 前端, 设计' # 网站关键词
+url: 'http://liaokeyu.com' # 站点url
+baseurl: ''
+
+# Build settings
+paginate: 6 # 一页放几篇文章
+paginate_path: 'page:num'
 ```
 
-### Bugs
+其实大部分参数已经默认配置好了，你只需要通过文档了解它们，然后根据自己的需求去`_config.yml`文件里修改即可。
 
-> Commit your changes or stash them before you can merge
+#### 写一篇文章
 
-You must Commit, Stash or Discard local changes. See [here](https://stackoverflow.com/a/15745424/5861495) how to do it.
+文章一般都放在`_posts`文件夹里，每篇文章的开头都需要设置一些头信息：
 
-### Theme configurations using Hexo data files ([#328](https://github.com/iissnan/hexo-theme-next/issues/328))
-
-Currently, it is not smooth to update NexT theme from pulling or downloading new releases. It is quite often running into conflict status when updating NexT theme via `git pull`, or need to merge configurations manually when upgrading to new releases.
-
- At present, NexT encourages users to store some options in site's `_config.yml` and other options in theme's `_config.yml`. This approach is applicable, but has some drawbacks:
-1. Configurations are splited into two pieces
-2. Users maybe confuse which place should be for options
-
-In order to resolve this issue, NexT will take advantage of Hexo [Data files](https://hexo.io/docs/data-files.html). Because Data files is introduced in Hexo 3, so you need upgrade Hexo to 3.0 (or above) to use this feature.
-
-If you prefer Hexo 2.x, you can still use the old approach for configurations. NexT is still compatible with Hexo 2.x.
-
-#### Benefits
-
-With this feature, now you can put all your configurations into one place (`source/_data/next.yml`), you don't need to touch `next/_config.yml`. If there are any new options in new releases, you just need to copy those options from `next/_config.yml`, paste into `_data/next.yml` and set their values to whatever you want.
-
-#### How to use this feature
-
-1. Please ensure you are using Hexo 3 (or above)
-2. Create an file named `next.yml` in site's `source/_data` directory (create `_data` directory if it did not exist)
-3. Copy NexT theme options both in site's `_config.yml` and theme's `_config.yml` into `next.yml`.
-4. Use `--config source/_data/next.yml` parameter to start server, generate or deploy.\
-   For example: `hexo clean --config source/_data/next.yml && hexo g --config source/_data/next.yml`.
-
-## Features
-
-### Multiple languages support, including:
-:cn: Simplified Chinese & Traditional Chinese.<br>
-:us: English<br>
-:ru: Russian<br>
-:fr: French<br>
-:de: German<br>
-:jp: Japanese<br>
-:indonesia: Indonesian<br>
-:portugal: Portuguese (Brazil)<br>
-:kr: Korean<br>
-:it: Italian<br>
-:netherlands: Dutch<br>
-:vietnam: Vietnamese
-
-Default language is English.
-
-```yml
-language: en
-# language: zh-Hans
-# language: zh-hk
-# language: zh-tw
-# language: ru
-# language: fr-FR
-# language: de
-# language: ja
-# language: id
-# language: pt
-# language: pt-BR
-# language: ko
-# language: it
-# language: nl-NL
-# language: vi
+```
+---
+layout: post
+title: 'H2O theme for Jekyll'
+subtitle: '或许是最漂亮的Jekyll主题'
+date: 2017-04-18
+categories: 技术
+cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-postcover.jpg'
+tags: jekyll 前端开发 设计
+---
 ```
 
-Set `language` field as following in site `_config.yml` to change to Chinese.
+#### 导航
 
-```yml
-language: zh-Hans
+博客顶部的导航栏信息需要以下面的格式进行配置：
+
+```
+# Navigation links
+nav:
+  home: '/'
+  tags: '/tags.html'
 ```
 
-### Comment support.
+导航链接需要写上完整的html文件名，它们都是放于根目录下的，如果自建文件夹，请务必在`exclude` 参数中增加自建文件夹的文件名:
 
-NexT has native support for `DuoShuo` and `Disqus` comment systems.
-
-Add the following snippets to your `_config.yml`:
-
-```yml
-duoshuo:
-  enable: true
-  shortname: your-duoshuo-shortname
+```
+# Build settings
+exclude: ['node_modules', 'dev', 'package.json', '自定义的文件夹名字']
 ```
 
-OR
+这样做是为了在Jekyll运行时排除某些文件被复制到运行文件`_site`里去。
 
-```yml
-disqus_shortname: your-disqus-shortname
+#### 侧边栏
+
+![](screenshot/jekyll-theme-h2o-sideBar.png)
+
+侧边栏分为两个部分：【个人简介】和【推荐标签】。当屏幕宽度小于960px时，侧边栏会被隐藏。
+
+#### 社交图标
+
+使用阿里的图标管理平台Iconfont整理了一套常用的社交图标用于博客的个人简介上，包括微博、知乎、掘金、简书、Github等十三个网站，并且对鼠标悬停时的样式颜色进行了优化。
+
+配置格式如下：
+
+```
+# SNS settings 配置社交网站url
+sns:
+  weibo: '//weibo.com/lovecolcol'
+  juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
+  instagram: '//www.instagram.com/steveliaocn'
+  github: '//github.com/kaeyleo'
 ```
 
-### Tags page.
+sns属性可选参数：
 
-> Add a tags page contains all tags in your site.
+社交网站 | 参数
+--------|----
+微博 | `weibo`
+推特 | `twitter`
+Github | `github`
+知乎 | `zhihu`
+掘金 | `juejin`
+豆瓣 | `douban`
+简书 | `jianshu`
+UI中国 | `uicn`
+领英 | `linkedin`
+Facebook | `facebook`
+Youtube | `youtube`
+Instagram | `instagram`
+Dribbble | `dribbble`
+Behance | `behance`
+Medium | `medium`
+VK | `vk`
 
-- Create a page named `tags`
+#### 个人简介
 
-        hexo new page "tags"
+首页侧边栏和文章页面底部都会显示你的个人简介
 
-- Edit tags page, set page type to `tags`.
-
-        title: All tags
-        date: 2014-12-22 12:39:04
-        type: "tags"
-
-- Add `tags` to theme `_config.yml`:
-
-        menu:
-          home: /
-          archives: /archives
-          tags: /tags
-
-### Categories page.
-
-> Add a categories page contains all categories in your site.
-
-- Create a page named `categories`
-
-        hexo new page "categories"
-
-- Edit categories page, set page type to `categories`.
-
-        title: All categories
-        date: 2014-12-22 12:39:04
-        type: "categories"
-
-- Add `categories` to theme `_config.yml`:
-
-        menu:
-          home: /
-          archives: /archives
-          categories: /categories
-
-### Social Media
-
-NexT can automatically add links to your Social Media accounts:
-
-```yml
-social:
-  GitHub: your-github-url
-  Twitter: your-twitter-url
-  Weibo: your-weibo-url
-  DouBan: your-douban-url
-  ZhiHu: your-zhihu-url
+```
+# Author 配置博主信息
+author: 'Jack'
+nickname: 'xx'
+bio: '程序员'
+avatar: 'assets/img/avatar.jpg'
 ```
 
-### Feed link.
+#### 标签
 
-> Show a feed link.
+对侧边栏的标签模块进行相应配置：
 
-Set `rss` field in theme's `_config.yml`, as the following value:
-
-1. `rss: false` will totally disable feed link.
-2. `rss:  ` use sites' feed link. This is the default option.
-
-    Follow the installation instruction in the plugin's README. After the configuration is done for this plugin, the feed link is ready too.
-
-3. `rss: http://your-feed-url` set specific feed link.
-
-### Up to 5 code highlight themes built-in.
-
-NexT uses [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme) with 5 themes for you to choose from.
-Next use `normal` by default. Have a preview about `normal` and `night`:
-
-![Tomorrow Normal Preview](http://iissnan.com/nexus/next/tomorrow-normal.png)
-![Tomorrow Night Preview](http://iissnan.com/nexus/next/tomorrow-night.png)
-
-Head over to [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme) for more details.
-
-## Configuration
-
-NexT comes with few configurations.
-
-```yml
-
-# Menu configuration.
-menu:
-  home: /
-  archives: /archives
-
-# Favicon
-favicon: /favicon.ico
-
-# Avatar (put the image into next/source/images/)
-# can be any image format supported by web browsers (JPEG,PNG,GIF,SVG,..)
-avatar: /default_avatar.png
-
-# Code highlight theme
-# available: normal | night | night eighties | night blue | night bright
-highlight_theme: normal
-
-# Fancybox for image gallery
-fancybox: true
-
-# Specify the date when the site was setup
-since: 2013
+```
+# Tags
+recommend-tags: true
+recommend-condition-size: 12
 
 ```
 
-## Browser support
+Tags配置说明：
 
-![browser-image]
+ 属性 | 参数 | 描述
+-----|-----|-------
+`recommend-tags` | `true`, `false` | 是否显示推荐标签
+`recommend-condition-size` | `12` 或其他数字 | 推荐标签个数限制
 
-[![Browser Stack](.github/browserstack_logo.png)](https://www.browserstack.com/)
->**BrowserStack** is a cloud-based cross-browser testing tool that enables developers to test their websites across various browsers on different operating systems and mobile devices, without requiring users to install virtual machines, devices or emulators.
+#### 文章搜索
 
-## Contributing
+![](screenshot/jekyll-theme-h2o-search.png)
 
-Contribution is welcome, feel free to open an issue and fork. Waiting for your pull request.
-<!--
-[![hexo-image]][hexo-url]
-[![bower-image]][bower-url]
-[![jquery-image]][jquery-url]
+基于Jekyll服务器生成文章索引文件 `search.json` 为博客提供搜索服务。输入文章标题或与文章标签相关的关键字即可。
 
-[hexo-image]: http://img.shields.io/badge/Hexo-2.4+-2BAF2B.svg?style=flat-square
-[hexo-url]: http://hexo.io
-[bower-image]: http://img.shields.io/badge/Bower-*-2BAF2B.svg?style=flat-square
-[bower-url]: http://bower.io
-[jquery-image]: https://img.shields.io/badge/jquery-1.9-blue.svg?style=flat-square
-[jquery-url]: http://jquery.com/
--->
+搜索功能默认是开启的，以卡片的样式显示在侧边栏底部。如需关闭请将配置文件 `_config.yml` 中 `search ` 属性的值改为 `false` 。
 
-[browser-image]: https://img.shields.io/badge/browser-%20chrome%20%7C%20firefox%20%7C%20opera%20%7C%20safari%20%7C%20ie%20%3E%3D%209-lightgrey.svg
-[browser-url]: https://www.browserstack.com
+```
+# Search
+search: true
+```
 
-[gitter-image]: https://badges.gitter.im/Join%20Chat.svg
-[gitter-url]: https://gitter.im/iissnan/hexo-theme-next?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+说明 | 参数
+----|-----
+开启搜索功能 | `true`
+关闭搜索功能 | `false`
 
-[travis-image]: https://travis-ci.org/iissnan/hexo-theme-next.svg?branch=master
-[travis-url]: https://travis-ci.org/iissnan/hexo-theme-next?branch=master "Travis CI"
+#### 代码高亮
 
-[hexo-image]: https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg
-[hexo-url]: http://hexo.io
+模板引入了[Prism.js](http://prismjs.com)，一款轻量、可扩展的代码语法高亮库。
 
-[mnt-image]: https://img.shields.io/maintenance/yes/2017.svg
-[rel-image]: https://img.shields.io/github/release/iissnan/hexo-theme-next.svg
-<!--[lic-image]: https://img.shields.io/npm/l/hexo-theme-next.svg-->
-[lic-image]: https://img.shields.io/dub/l/vibe-d.svg
+很多知名网站如[MDN](https://developer.mozilla.org/)、[css-tricks](https://css-tricks.com/)也在用它，就连 JavaScript 之父 [Brendan Eich](https://brendaneich.com/) 也在个人博客上使用。
 
-[git-image]: https://img.shields.io/badge/install%20with%20-git-blue.svg
-[curl-tar-image]: https://img.shields.io/badge/install%20with%20-curl%20%7C%20tar-blue.svg
-[curl-tar-wget-image]: https://img.shields.io/badge/install%20with%20-curl%20%7C%20tar%20%7C%20wget-blue.svg
-[git-url]: http://lmgtfy.com/?q=linux+git+install
-[curl-tar-url]: http://lmgtfy.com/?q=linux+curl+tar+install
-[curl-tar-wget-url]: http://lmgtfy.com/?q=linux+curl+tar+wget+install
+![代码高亮](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-highlight.png)
 
-[download-latest-url]: https://github.com/iissnan/hexo-theme-next/archive/master.zip
-[releases-latest-url]: https://github.com/iissnan/hexo-theme-next/releases/latest
-[releases-url]: https://github.com/iissnan/hexo-theme-next/releases
-[tags-url]: https://github.com/iissnan/hexo-theme-next/tags
-[commits-url]: https://github.com/iissnan/hexo-theme-next/commits/master
+遵循 [HTML5](https://www.w3.org/TR/html5/grouping-content.html#the-pre-element) 标准，Prism 使用语义化的 `<pre>` 元素和 `<code>` 元素来标记代码区块：
+
+```
+<pre><code class="language-css">p { color: red }</code></pre>
+```
+
+在Markdown中你可以这样写：
+
+
+	 ```css
+		p { color: red }
+	 ```
+
+支持语言：
+
+- HTML
+- CSS
+- Sass
+- JavaScript
+- CoffeeScript
+- Java
+- C-like
+- Swift
+- PHP
+- Go
+- Python
+
+#### 夜间模式
+
+晚11点至次日凌晨6点自动开启夜间模式。如果不需要，则将配置文件 `_config.yml` 中 `nightMode ` 属性的值改为 `false` 即可。
+
+```
+# Night mode
+nightMode: true
+```
+
+说明 | 参数
+----|-----
+开启夜间模式 | `true`
+关闭夜间模式 | `false`
+
+#### 主题皮肤
+
+![](screenshot/jekyll-theme-h2o-themecolor.jpg)
+
+支持两种主题颜色蓝色（默认）和粉色
+
+主要效果体现在首页博客封面、顶部导航栏的logo以及鼠标悬停时文字显示的颜色效果。
+
+```
+# theme color
+theme-color: 'default' # pink or default
+```
+
+颜色 | 参数
+----|-----
+蓝色 | `default`
+粉色 | `pink`
+
+如果你希望在博客封面显示图片，需要去index.html文件中的头信息中添加 `header-img` 配置：
+
+```
+---
+layout: default
+home-title: Steven的博客
+description: 开发者，创造者
+header-img: assets/img/banner.jpg
+---
+```
+
+#### 头图底纹
+
+![](screenshot/jekyll-theme-h2o-heroPatterns.png)
+
+在没有图片的情况下单纯显示颜色会不会太无趣了点？于是想到了加入底纹元素，底纹素材是SVG格式的（保存在css样式里），加载比图片快很多。六种底纹（电路、食物、云海、钻石等等）供你选择，配置如下：
+
+```
+# Hero background patterns
+postPatterns: 'circuitBoard'
+```
+
+`postPatterns` 属性参数配置：
+
+底纹描述  |  参数
+------|------
+电路 | `circuitBoard`
+圆环 | `overlappingCircles`
+吃货日常：啃打鸡 | `food`
+土豪必备：钻石| `glamorous`
+圈圈叉叉 | `ticTacToe`
+中国风：云海 | `seaOfClouds`
+
+#### 自定义
+
+主题开发使用的技术栈也比较简单：引入jQuery类库、使用Sass代替CSS编写样式，使用Gulp完成Sass的编译、CSS和JavaScript的代码合并压缩等任务。
+
+如果你喜欢折腾，想对模板的代码进行修改，需要使用命令 `npm install` 安装 `package.json` 中的依赖，然后 `gulp` 一下即可开始你的自定义之旅。
+
+在了解H2O主题的目录结构之前，确保你对[Jekyll目录结构](http://jekyll.com.cn/docs/structure/)有所了解。
+
+```
+	.
+	├── _config.yml # 配置文件
+	├── _includes # 页面组件方便重用
+	|   ├── footer.html # 页脚
+	|   └── head.html # html文档的头部内容
+	|   └── header.html # 顶部菜单栏
+	|   └── pageNav.html # 文章列表分页组件
+	├── _layouts # 布局模板
+	|   ├── default.html # 默认模板
+	|   └── post.html # 文章页面模板
+	├── _posts # 这里放文章
+	|   ├── 2017-05-03-elements-of-javascript-style.md # 命名格式：年-月-日-文章标题.md
+	|   └── 2007-02-21-life-on-mars.md
+	├── _site # Jekyll将源码处理后生成的站点文件，里面的内容可直接发布
+	├── assets # 存放用于线上环境的静态资源，如需修改css和js文件请到dev文件夹
+	|   ├── css # dev文件夹中sass编译后的样式文件
+	|   └── fonts # 字体文件
+	|   └── icons # 图标文件
+	|   └── img #  图片文件
+	|   └── js # dev文件夹中处理后的脚本文件
+	├── dev # 开发文件
+	|   ├── js # 存放脚本源码
+	|   └── sass # 样式源码
+	|       └── app.scss # 整合下面的所有样式文件
+	|       └── base.scss # 引入字体、Reset部分样式
+	|       └── common.scss # 模板的主要样式
+	|       └── helper.scss # 工具样式
+	|       └── layouts.scss # 响应式布局
+	└── gulpfile.js # 自动化任务脚本
+	└── index.html # 模板首页
+	└── tags.html # 标签页面
+	└── 404.html # 404页面
+	└── package.json # 管理项目的依赖项
+```
+
+值得注意的是，css及js的源码都在 `dev` 文件夹中，每一次保存 gulp 都会对它们进行处理并保存到 `assets` 文件夹以供 `_site` 上线环境使用。
+
+#### Disqus
+
+[Disqus](https://disqus.com/)是一个第三方社交评论插件，体验相当不错。
+
+在配置文件 `_config.yml` 中找到comments的相关配置，设置 `disqus` 参数为 `true` 打开评论功能（ `false` 为关闭），并且设置 `disqus_url`。
+
+```
+# Comments
+comments:
+	disqus: true
+	disqus_url: 'https://your-disqus-username.disqus.com/embed.js'
+```
+
+注：`disqus` 默认值为 `false`
+
+#### Share.js
+
+为了让文章更方便地分享，使用了第三方分享插件[Share.js](https://github.com/overtrue/share.js)，支持一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。
+
+```
+# Share
+social-share: true # 开启或者关闭分享功能
+social-share-items: ['wechat', 'weibo', 'douban','twitter']
+```
+
+### Contribution 贡献
+
+Any types of contribution are welcome. Thanks.
+
+接受各种形式的贡献，包括不限于提交问题与需求，修复代码。等待您的 ```Pull Request```
+
+#### 感谢参与代码贡献的伙伴
+
+- [Ray-Eldath](https://github.com/Ray-Eldath)
+- [sctop](https://github.com/sctop)
+- [bananaappletw](https://github.com/bananaappletw)
+- [moycat](https://github.com/moycat)
+
+### License 许可证
+
+Jekyll-Theme-H2O is licensed under [MIT](https://github.com/kaeyleo/jekyll-theme-H2O/blob/master/LICENSE).
