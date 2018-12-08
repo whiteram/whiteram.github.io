@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Markdown learn"
+date: 2018-12-08 
+description: "markdown learn"
+tag: Markdown
+---   
+
 # first title
 
 ## second title
@@ -104,7 +112,36 @@
 ##### Keys 
 
 > 打字机	F9
-> 专注	F8
-> 全屏	F11
-> 源码	Control + /
+> 专注		F8
+> 全屏		F11
+> 源码		Control + /
 
+##### HTML
+
+> <center>center</center>
+> Word<sub>sub</sub>
+> Word<sup>sup<sup>
+> <small>small</small>
+> <big>big<big>
+> <strong>strong</strong>
+> <em>EM</em>
+> <i>i</i>
+> ``<bdo dir="rtl">bdo</bdo>``<bdo dir="rtl">bdo</bdo>
+> ``<font color="green">green</font>``<font color="green">green</font>
+> ```html
+> <address>
+> Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br> 
+> Visit us at:<br>
+> Example.com<br>
+> Box 564, Disneyland<br>
+> USA
+> </address>
+> ```
+> <address>
+> Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br> 
+> Visit us at:<br>
+> Example.com<br>
+> Box 564, Disneyland<br>
+> USA
+> </address>
+> 
